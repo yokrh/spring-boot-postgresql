@@ -1,6 +1,6 @@
 # spring-boot-postgresql
 
-Try spring boot with PostgreSQL.
+Try Spring Boot with PostgreSQL.
 
 
 ## Workflow
@@ -34,9 +34,9 @@ selected
 
 ### IntelliJ
 
-#### Setting
+Note the setting problem I encountered.
 
-got the error
+Got the error:
 ```
 Could not resolve org.springframework.boot:spring-boot-gradle-plugin:3.0.1.
 ...
@@ -50,6 +50,8 @@ to
 `corretto-19`
 
 ### PostgreSQL
+
+Use docker image.
 
 ```sh
 # run
@@ -68,6 +70,8 @@ psql -U postgres
 # psql -h localhost -U postgres -W
 # password
 ```
+
+PostgreSQL commands note.
 
 ```sql
 -- show databases
@@ -88,7 +92,7 @@ select NOW();
 -- create database
 CREATE DATABASE testdb ENCODING 'UTF-8';
 -- drop database
-DROP DATABASE testdb;
+-- DROP DATABASE testdb;
 
 -- use database
 \c testdb
@@ -186,20 +190,32 @@ select * from product;
 ```
 
 
+### Implementation
+
+#### Spring Boot
+
+Postgres DB Connection configuration
+
+`application.properties`
+```
+```
+
+
+
 ## Reference
 
-postgres - Official Image | Docker Hub
+* postgres - Official Image | Docker Hub
 https://hub.docker.com/_/postgres
 
-DockerでPostgreSQLを使う - Qiita
+* DockerでPostgreSQLを使う - Qiita
 https://qiita.com/zaburo/items/7ab51a7a4d9e1b2d1ec4
 
-MySQLとPostgreSQLコマンド比較表 - Qiita
+* MySQLとPostgreSQLコマンド比較表 - Qiita
 https://qiita.com/aosho235/items/c657e2fcd15fa0647471
 
-Postgresだとcreate tableと同時にindex作成ができなそう - Qiita
+* Postgresだとcreate tableと同時にindex作成ができなそう - Qiita
 https://qiita.com/unvavo/items/1396ec168274bb86680c
 
-PostgreSQLにおけるロケールの影響調査 - Qiita
+* PostgreSQLにおけるロケールの影響調査 - Qiita
 https://qiita.com/fujii_masao/items/2a715fb5a3f718d22ab4
 
