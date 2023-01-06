@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.application.repository.product.mapper.ProductMapper">
+    <resultMap id="productEntity" type="com.example.demo.application.domain.product.ProductEntity">
+        <result column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_at" property="updatedAt" />
+        <result column="created_by" property="createdBy" />
+        <result column="updated_by" property="updatedBy" />
+    </resultMap>
+
+    <insert id="insertProduct" useGeneratedKeys="true" parameterType="com.example.demo.application.domain.product.ProductEntity">
+        INSERT INTO product(
+        name,
+        created_by,
+        updated_by
+        )
+        VALUES(
+        #{name},
+        #{createdBy},
+        #{updatedBy}
+        )
+    </insert>
+
+    <insert id="insertProductList" useGeneratedKeys="true" parameterType="java.util.List">
+        INSERT INTO product(
+        name,
+        created_by,
+        updated_by
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{name},
+            #{createdBy},
+            #{updatedBy}
+            )
+        </foreach>
+    </insert>
+
+    <select id="getProduct" resultMap="productEntity">
+        SELECT
+        id,
+        name,
+        created_at,
+        updated_at,
+        created_by,
+        updated_by
+        FROM product
+        WHERE id = #{id}
+    </select>
+</mapper>
