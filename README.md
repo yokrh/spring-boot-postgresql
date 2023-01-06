@@ -112,8 +112,8 @@ id SERIAL NOT NULL,
 name VARCHAR(50),
 created_at TIMESTAMP(3) NOT NULL DEFAULT NOW(),
 updated_at TIMESTAMP(3) NOT NULL DEFAULT NOW(),
-created_by VARCHAR(50) NOT NULL,
-updated_by VARCHAR(50) NOT NULL,
+created_by VARCHAR(50),
+updated_by VARCHAR(50),
 version INT DEFAULT 1
 );
 
@@ -168,6 +168,7 @@ CREATE USER user1 WITH PASSWORD 'user1';
 -- grant
 GRANT CONNECT ON DATABASE testdb TO user1;
 GRANT SELECT, UPDATE, INSERT ON product TO user1;
+GRANT USAGE ON SEQUENCE product_id_seq TO user1;
 
 -- check access permission
 \l
