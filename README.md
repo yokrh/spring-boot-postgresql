@@ -23,7 +23,6 @@ selected
   * 17
 * Dependencies
   * Lombok
-  * Spring Web Services
   * Spring Security
   * OAuth2 Client
   * Spring Data JDBC
