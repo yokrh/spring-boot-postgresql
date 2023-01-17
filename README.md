@@ -107,8 +107,19 @@ CREATE DATABASE testdb ENCODING 'UTF-8';
 -- updated_by VARCHAR(50) NULL,
 -- version INT DEFAULT 1
 -- );
+
+-- CREATE TABLE IF NOT EXISTS product (
+-- id SERIAL NOT NULL,
+-- name VARCHAR(50),
+-- created_at TIMESTAMP(3) NOT NULL DEFAULT NOW(),
+-- updated_at TIMESTAMP(3) NOT NULL DEFAULT NOW(),
+-- created_by VARCHAR(50),
+-- updated_by VARCHAR(50),
+-- version INT DEFAULT 1
+-- );
+
 CREATE TABLE IF NOT EXISTS product (
-id SERIAL NOT NULL,
+id BIGINT IDENTITY(1,1) NOT NULL,
 name VARCHAR(50),
 created_at TIMESTAMP(3) NOT NULL DEFAULT NOW(),
 updated_at TIMESTAMP(3) NOT NULL DEFAULT NOW(),
@@ -142,7 +153,7 @@ version INT DEFAULT 1
 -- INDEX `user_id`(`user_id`)
 -- );
 CREATE TABLE IF NOT EXISTS customer (
-id SERIAL NOT NULL PRIMARY KEY,
+id BIGINT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 name VARCHAR(50),
 status VARCHAR(64) NOT NULL,
 meta_json JSON,
