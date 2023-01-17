@@ -87,6 +87,7 @@ PostgreSQL commands note.
 
 -- check time stamp
 select NOW();
+show timezone;
 
 -- create database
 CREATE DATABASE testdb ENCODING 'UTF-8';
